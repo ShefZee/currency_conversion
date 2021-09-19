@@ -23,11 +23,11 @@ public class SwaggerConfig {
     }
 
     private Predicate<String> postPaths() {
-        return or(regex("/api/car-service.*"));
+        return or(regex("/api/currency-conversion.*"));
     }
 
     private ApiInfo apiInfo() {
-        return new ApiInfoBuilder().title("car-booking-service")
+        return new ApiInfoBuilder().title("Currency Conversion service")
                 .description("API reference for developers")
                 .termsOfServiceUrl("http://test.com")
                 .version("1.0").build();

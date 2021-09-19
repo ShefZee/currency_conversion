@@ -8,6 +8,6 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Import({CurrencyConversionConfiguration.class,
-        QueueConfiguration.class})
+        })
 public @interface ConversionConfiguration {
 }

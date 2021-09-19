@@ -1,6 +1,8 @@
 package com.shefzee.currencyconversion.validators;
 
 
+import com.shefzee.currencyconversion.error.BusinessException;
+import com.shefzee.currencyconversion.error.ErrorResponse;
 import com.shefzee.currencyconversion.helper.ResourceBundleUtil;
 import com.shefzee.currencyconversion.request.CurrencyConversionRequest;
 import lombok.AllArgsConstructor;
@@ -39,7 +41,7 @@ public class CurrencyConversionBusinessRules {
         }
 
         if(!CollectionUtils.isEmpty(errorMessages)){
-            throw ErrorResponse.builder()
+            throw BusinessException.builder()
                     .errorMessages(errorMessages)
                     .httpStatus(HttpStatus.BAD_REQUEST.value())
                     .build();

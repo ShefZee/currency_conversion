@@ -6,13 +6,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 @JsonIgnoreProperties(ignoreUnknown = true)
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
-public class ConversionResponse implements Response {
+@Builder
+public class ExchangeRateResponse implements Response {
 
+    private String id;
     private String sourceCurrency;
     private String targetCurrency;
     private String value;

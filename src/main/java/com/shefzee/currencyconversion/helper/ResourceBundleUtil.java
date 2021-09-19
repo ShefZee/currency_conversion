@@ -1,6 +1,6 @@
 package com.shefzee.currencyconversion.helper;
 
-import com.shefzee.carbookingservice.booking.constants.ValidationMessageConstants;
+import com.shefzee.currencyconversion.constants.ValidationMessageConstants;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.stereotype.Component;

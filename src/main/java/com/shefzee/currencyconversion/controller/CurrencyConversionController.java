@@ -1,32 +1,33 @@
 package com.shefzee.currencyconversion.controller;
 
-import com.shefzee.carbookingservice.booking.constants.ApiConstants;
-import com.shefzee.carbookingservice.booking.request.CarBookingRequest;
-import com.shefzee.carbookingservice.booking.response.CarBookingResponse;
-import com.shefzee.carbookingservice.booking.service.CarBookingService;
+
+import com.shefzee.currencyconversion.constants.ApiConstants;
+import com.shefzee.currencyconversion.entity.CurrencyConversion;
+import com.shefzee.currencyconversion.request.CurrencyConversionRequest;
+import com.shefzee.currencyconversion.response.ConversionResponse;
+import com.shefzee.currencyconversion.service.ConversionService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping(ApiConstants.API_ROOT + "/car-booking")
+@RequestMapping(ApiConstants.API_ROOT + "/currency-conversion")
 @AllArgsConstructor
 @CrossOrigin(origins = "*")
 public class CurrencyConversionController {
-    private CarBookingService carBookingService;
+    private ConversionService conversionService;
 
-    @PostMapping("/create")
-    public ResponseEntity<CarBookingResponse> createBooking(@RequestBody CarBookingRequest request){
-        return ResponseEntity.ok(carBookingService.saveBooking(request));
+    @GetMapping("/")
+    public ResponseEntity<ConversionResponse> getExchangeRate(@RequestParam(name="source") String source, @RequestParam(name="target") String target){
+        return ResponseEntity.ok(conversionService.convert(source,target));
     }
 
-    @PostMapping("/update")
-    public ResponseEntity<CarBookingResponse> updateBooking(@RequestBody CarBookingRequest request){
-        return ResponseEntity.ok(carBookingService.saveBooking(request));
+    @GetMapping("/all")
+    public ResponseEntity<List<CurrencyConversion>> getAll(){
+        return ResponseEntity.ok(conversionService.findAll());
     }
 
-    @GetMapping("/getBooking/{id}")
-    public ResponseEntity<CarBookingResponse> getBooking(@PathVariable("id") String id){
-        return ResponseEntity.ok(carBookingService.getBooking(id));
-    }
+
 }
