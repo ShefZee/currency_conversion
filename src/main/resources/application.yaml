@@ -3,7 +3,7 @@ server:
 spring:
   application:
     name: exchange-rate-service
-  atasource:
+  datasource:
     url: ${SPRING_DATA_URL:jdbc:mysql://localhost:3306/database?autoReconnect=true&useSSL=false}
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: ${DB_USER_NAME:shefzee}
@@ -14,7 +14,7 @@ spring:
       ddl-auto: update
 exchange-rate:
   service:
-    url: ${EXCHANGE_RATE_URL}/api/exchange-rate}
+    url: ${EXCHANGE_RATE_URL}/api/exchange-rate
 
 
 

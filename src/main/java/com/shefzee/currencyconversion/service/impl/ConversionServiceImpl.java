@@ -40,6 +40,7 @@ public class ConversionServiceImpl implements ConversionService {
                 .build();
 
        String uri = UriComponentsBuilder.fromHttpUrl(this.applicationUrl + "/converter").toUriString();
+        System.out.println("uri = " + uri);
        HttpEntity<ExchangeRateRequest> httpEntity = new HttpEntity<>(exchangeRateRequest);
        ExchangeRateResponse exchangeRateResponse = this.restTemplate.exchange(uri, HttpMethod.POST, httpEntity, new ParameterizedTypeReference<ExchangeRateResponse>() {
             }).getBody() ;
