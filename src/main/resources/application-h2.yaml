@@ -1,0 +1,21 @@
+server:
+  port: ${PORT:9091}
+spring:
+  application:
+    name: currency-conversion-service
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+  h2:
+    console:
+      path: /h2-console
+      enabled: true
+exchange-rate:
+  service:
+    url: ${EXCHANGE_RATE_URL:http://localhost:9092}/api/exchange-rate
